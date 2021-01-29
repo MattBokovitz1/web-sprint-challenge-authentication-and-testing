@@ -37,7 +37,7 @@ describe("endpoints", () => {
     it("welcomes user on login", async () => {
       await request(server).post("/api/auth/register").send(Matt);
       const res = await request(server).post("/api/auth/login").send(Matt);
-      expect(res.body.message).toMatch(/welcome/);
+      expect(res.body.message).toMatch(`/welcome/`);
     });
     it("returns status code 400 if invalid credentials", async () => {
       const res = await request(server).post("/api/auth/register").send(Pete);
